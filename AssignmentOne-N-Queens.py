@@ -1,4 +1,5 @@
 # START OF CLASS ----------------
+
 totalSolutions = 0
 
 class Puzzle:
@@ -74,7 +75,20 @@ class Puzzle:
 # END OF CLASS ----------------
 
 # MAIN SECTION
-N = int(input("Enter the value of N: "))
+while(True):
+    try:
+        N = int(input("Enter the value of N between 1 - 10: "))
+    except:
+        print('Please enter a valid integer between 1-10')
+        continue
+
+    if (N>=1 and N<=10 and type(N)==int):
+        loop = False
+        break
+    
+    print('Please enter a valid integer between 1-10')
+
+
 BOARD = [[0 for i in range(N)] for j in range(N)]
 Puzzle(N).placeQueen(BOARD, 0)
 print(f'There exists {totalSolutions} total solutions to the {N}-Queens puzzle.')
